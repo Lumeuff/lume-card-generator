@@ -2,7 +2,7 @@
    CSS Custom Properties — LUME Card Generator
    ====================================================== */
 :root {
-  /* ── Card colours (overridable per card) ─────────────── */
+  /* ── Card colours ─────────────────────────────────── */
   --card-bg:            #006DBF;
   --card-text:          #ffffff;
   --card-text-muted:    rgba(255,255,255,0.75);
@@ -11,21 +11,19 @@
   --card-radius:        22px;
   --card-w:             648px;
   --card-h:             408px;
-  --card-scale:         0.75;
-  --card-scale-margin:  -102px;
 
-  /* ── QR panel ─────────────────────────────────────────── */
+  /* ── QR panel ─────────────────────────────────────── */
   --qr-panel-bg:        #eef4fa;
   --qr-title-color:     #006DBF;
   --qr-caption-color:   #006DBF;
   --qr-divider-color:   #b8d4ea;
 
-  /* ── Photo box ────────────────────────────────────────── */
+  /* ── Photo box ────────────────────────────────────── */
   --photo-bg:           #ffffff;
   --photo-border:       rgba(255,255,255,0.30);
   --photo-radius:       10px;
 
-  /* ── App UI ───────────────────────────────────────────── */
+  /* ── App UI ───────────────────────────────────────── */
   --ui-bg:              #0f1923;
   --ui-surface:         #172030;
   --ui-border:          rgba(0,109,191,0.25);
@@ -36,7 +34,7 @@
   --ui-accent-alpha:    rgba(0,109,191,0.08);
   --ui-accent-alpha2:   rgba(0,109,191,0.18);
 
-  /* ── Font stack ───────────────────────────────────────── */
+  /* ── Font stack ───────────────────────────────────── */
   --font-main:          'Barlow', sans-serif;
   --font-cond:          'Barlow Condensed', sans-serif;
 }

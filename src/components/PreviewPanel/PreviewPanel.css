@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 44px;
-  padding: 44px 40px;
+  padding: 36px 20px 44px;
   background: radial-gradient(ellipse at 50% 40%, #1a2d42 0%, #0f1923 70%);
   overflow-y: auto;
 }
@@ -22,4 +22,15 @@
 
 .preview-panel__wrapper {
   text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .preview-panel {
+    gap: 28px;
+    padding: 24px 16px 32px;
+    justify-content: flex-start;
+    flex: 1;
+    min-height: 0;
+  }
 }

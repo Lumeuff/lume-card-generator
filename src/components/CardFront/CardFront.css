@@ -1,11 +1,9 @@
 /* ======================================================
-   CardFront — LUME design  (CR-80: 85.6×54 mm → 648×408px)
+   CardFront + shared .card shell  (CR-80: 85.6×54 mm)
    ====================================================== */
-
-/* ── Shared card shell ──────────────────────────────── */
 .card {
-  width:  var(--card-w);
-  height: var(--card-h);
+  width: 648px;
+  height: 408px;
   border-radius: var(--card-radius);
   position: relative;
   overflow: hidden;
@@ -14,9 +12,9 @@
     0 0 0 1px rgba(255,255,255,0.10),
     0 22px 60px rgba(0,0,0,0.75),
     0 4px 14px rgba(0,109,191,0.35);
-  transform: scale(var(--card-scale));
+  /* scale + marginBottom applied via inline style (dynamic) */
   transform-origin: top center;
-  margin-bottom: var(--card-scale-margin);
+  flex-shrink: 0;
 }
 
 .card__waves {
@@ -37,7 +35,6 @@
   mix-blend-mode: overlay;
 }
 
-/* NFC indicator */
 .card__nfc {
   position: absolute;
   bottom: 12px;
@@ -50,19 +47,15 @@
 }
 
 .card__nfc-ring {
-  width: 20px;
-  height: 20px;
+  width: 20px; height: 20px;
   border-radius: 50%;
   border: 1.5px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 
 .card__nfc-ring::after {
   content: '';
-  width: 9px;
-  height: 9px;
+  width: 9px; height: 9px;
   border-radius: 50%;
   border: 1.5px solid #fff;
 }
@@ -75,27 +68,19 @@
   color: #fff;
 }
 
-/* ── Front specific ─────────────────────────────────── */
+/* ── Front: LUME brand (top-right) ───────────────────── */
 .card-front__brand {
   position: absolute;
-  top: 22px;
-  right: 26px;
+  top: 22px; right: 26px;
   display: flex;
   align-items: center;
   gap: 8px;
   z-index: 2;
 }
 
-.card-front__brand-brasao {
-  object-fit: contain;
-  flex-shrink: 0;
-}
+.card-front__brand-brasao { object-fit: contain; flex-shrink: 0; }
 
-.card-front__brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
+.card-front__brand-text { display: flex; flex-direction: column; gap: 1px; }
 
 .card-front__brand-name {
   font-family: var(--font-cond);
@@ -113,12 +98,10 @@
   line-height: 1.35;
 }
 
-/* ── Info block ─────────────────────────────────────── */
+/* ── Front: info block (left) ────────────────────────── */
 .card-front__info {
   position: absolute;
-  top: 26px;
-  left: 40px;
-  right: 255px;
+  top: 26px; left: 40px; right: 255px;
   text-align: justify;
   text-align-last: left;
   z-index: 2;
@@ -131,14 +114,11 @@
   text-transform: uppercase;
   letter-spacing: 1.8px;
   color: var(--card-text-label);
-  margin-top: 13px;
-  margin-bottom: 1px;
+  margin-top: 13px; margin-bottom: 1px;
   line-height: 1;
 }
 
-.card-front__info-label:first-child {
-  margin-top: 0;
-}
+.card-front__info-label:first-child { margin-top: 0; }
 
 .card-front__info-institution {
   font-size: 14px;
@@ -146,8 +126,7 @@
   color: var(--card-text);
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  margin: 0;
-  line-height: 1.2;
+  margin: 0; line-height: 1.2;
 }
 
 .card-front__info-name {
@@ -166,35 +145,23 @@
   font-weight: 700;
   color: var(--card-text);
   letter-spacing: 0.3px;
-  margin: 0;
-  line-height: 1.2;
+  margin: 0; line-height: 1.2;
 }
 
-/* ── Photo box ──────────────────────────────────────── */
+/* ── Front: photo (right) ────────────────────────────── */
 .card-front__photo {
   position: absolute;
-  right: 32px;
-  top: 26px;
-  bottom: 32px;
+  right: 32px; top: 26px; bottom: 32px;
   width: 180px;
   background: var(--photo-bg);
   border-radius: var(--photo-radius);
   border: 2px solid var(--photo-border);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; justify-content: center;
   z-index: 2;
 }
 
-.card-front__photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.card-front__photo-img { width: 100%; height: 100%; object-fit: cover; }
 
-.card-front__photo-placeholder {
-  font-size: 56px;
-  opacity: 0.35;
-  color: #006DBF;
-}
+.card-front__photo-placeholder { font-size: 56px; opacity: 0.35; color: #006DBF; }

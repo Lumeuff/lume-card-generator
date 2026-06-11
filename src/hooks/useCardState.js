@@ -17,22 +17,18 @@ const PRESETS = ['7','8','9','10','11','12','14','16','18','20','22','24','26','
 export function useCardState() {
   // ── Form ──────────────────────────────────────────────
   const [form, setForm] = useState({
-    instituto:        '',
-    nome:             '',
-    curso:            '',
-    turma:            '',
-    terminoPrevisto:  '',
-    qr:               '',
+    instituto: '', nome: '', curso: '',
+    turma: '', terminoPrevisto: '', qr: '',
   });
-
   const updateForm = (field, value) =>
     setForm(prev => ({ ...prev, [field]: value }));
 
   // ── Assets ────────────────────────────────────────────
-  const [photoURL,    setPhotoURL]    = useState(null);
-  const [bgURL,       setBgURL]       = useState(null);
-  const [cardBgColor, setCardBgColor] = useState('#006DBF');
-  const [generated,   setGenerated]   = useState(false);
+  const [photoURL,      setPhotoURL]      = useState(null);
+  const [bgURL,         setBgURL]         = useState(null);
+  const [cardBgColor,   setCardBgColor]   = useState('#006DBF');
+  const [cardBgEnabled, setCardBgEnabled] = useState(true);
+  const [generated,     setGenerated]     = useState(false);
 
   const photoInputRef = useRef(null);
   const bgInputRef    = useRef(null);
@@ -53,13 +49,15 @@ export function useCardState() {
     reader.readAsDataURL(file);
   };
 
+  // effectiveCardBg: when disabled the card has no colour fill
+  const effectiveCardBg = cardBgEnabled ? cardBgColor : 'transparent';
+
   // ── Font sizes ────────────────────────────────────────
   const [fontSizes,  setFontSizes]  = useState({ ...DEFAULT_FONT_SIZES });
   const [fontTarget, setFontTarget] = useState('name');
   const [presetSize, setPresetSize] = useState('');
   const [customSize, setCustomSize] = useState('');
 
-  // Sync controls when target changes
   useEffect(() => {
     const cur = String(fontSizes[fontTarget]);
     setPresetSize(PRESETS.includes(cur) ? cur : '');
@@ -70,8 +68,7 @@ export function useCardState() {
     if (!val) return;
     const n = parseFloat(val);
     setFontSizes(prev => ({ ...prev, [fontTarget]: n }));
-    setCustomSize(val);
-    setPresetSize(val);
+    setCustomSize(val); setPresetSize(val);
   };
 
   const applyCustom = () => {
@@ -94,27 +91,28 @@ export function useCardState() {
 
   const clearAll = () => {
     setForm({ instituto:'', nome:'', curso:'', turma:'', terminoPrevisto:'', qr:'' });
-    setPhotoURL(null);
-    setBgURL(null);
-    setCardBgColor('#006DBF');
+    setPhotoURL(null); setBgURL(null);
+    setCardBgColor('#006DBF'); setCardBgEnabled(true);
     setGenerated(false);
     if (photoInputRef.current) photoInputRef.current.value = '';
     if (bgInputRef.current)    bgInputRef.current.value    = '';
   };
 
   // ── Display helpers ───────────────────────────────────
-  const displayNome       = (form.nome       || 'NOME DO ALUNO').toUpperCase();
-  const displayInstituto  = form.instituto   || 'Instituto';
-  const displayCurso      = form.curso       || '—';
-  const displayTurma      = form.turma       || '—';
-  const displayTermino    = form.terminoPrevisto || '—';
-  const qrContent         = form.qr          || 'https://lumeuff.me';
+  const displayNome      = (form.nome      || 'NOME DO ALUNO').toUpperCase();
+  const displayInstituto = form.instituto  || 'Instituto';
+  const displayCurso     = form.curso      || '—';
+  const displayTurma     = form.turma      || '—';
+  const displayTermino   = form.terminoPrevisto || '—';
+  const qrContent        = form.qr         || 'https://lumeuff.me';
 
   return {
     form, updateForm,
     photoURL, setPhotoURL, photoInputRef, handlePhoto,
     bgURL, setBgURL, bgInputRef, handleBg,
     cardBgColor, setCardBgColor,
+    cardBgEnabled, setCardBgEnabled,
+    effectiveCardBg,
     generated, generate, clearAll,
     fontSizes, fontTarget, setFontTarget,
     presetSize, setPresetSize, customSize, setCustomSize,

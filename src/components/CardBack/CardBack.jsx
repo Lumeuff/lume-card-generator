@@ -19,8 +19,16 @@ function WavesSVG() {
 export default function CardBack({
   cardBgColor, bgURL,
   qrContent, fontSizes,
+  cardScale = 0.75,
+  cardMarginBottom,
 }) {
-  const cardStyle = { '--card-bg': cardBgColor };
+  const mb = cardMarginBottom !== undefined ? cardMarginBottom : (cardScale - 1) * 408;
+
+  const cardStyle = {
+    '--card-bg': cardBgColor,
+    transform: `scale(${cardScale})`,
+    marginBottom: `${mb}px`,
+  };
 
   return (
     <div className="card card-back" id="card-back" style={cardStyle}>
@@ -28,11 +36,8 @@ export default function CardBack({
 
       <WavesSVG />
 
-      {/* ── Info text – left center ───────────────────── */}
-      <div
-        className="card-back__info"
-        style={{ fontSize: fontSizes['back-info'] + 'px' }}
-      >
+      {/* Info text */}
+      <div className="card-back__info" style={{ fontSize: fontSizes['back-info'] + 'px' }}>
         Uso pessoal e intransferível.
         Válida para identificação nos serviços
         do ecossistema LUME
@@ -41,19 +46,14 @@ export default function CardBack({
         Em caso de perda ou roubo,
         comunique imediatamente.
         <br /><br />
-        Mais informações:{' '}
-        <strong>lumeuff.me</strong>
+        Mais informações: <strong>lumeuff.me</strong>
       </div>
 
-      {/* ── QR panel – right ──────────────────────────── */}
+      {/* QR panel */}
       <div className="card-back__qr-panel">
-        <p
-          className="card-back__qr-title"
-          style={{ fontSize: fontSizes['qr-title'] + 'px' }}
-        >
+        <p className="card-back__qr-title" style={{ fontSize: fontSizes['qr-title'] + 'px' }}>
           Este é o QR Code<br />da sua carteirinha<br />digital.
         </p>
-
         <div className="card-back__qr-code">
           <QRCodeSVG
             value={qrContent}
@@ -63,32 +63,22 @@ export default function CardBack({
             level="M"
           />
         </div>
-
         <div className="card-back__qr-divider" />
-
-        <p
-          className="card-back__qr-caption"
-          style={{ fontSize: fontSizes['qr-caption'] + 'px' }}
-        >
+        <p className="card-back__qr-caption" style={{ fontSize: fontSizes['qr-caption'] + 'px' }}>
           Escaneie para visualizar<br />
           o seu perfil na plataforma<br />
           <strong>Lume Personality</strong>
         </p>
       </div>
 
-      {/* ── LUME logo – bottom left ───────────────────── */}
-      <div
-        className="card-back__lume-logo"
-        style={{ fontSize: fontSizes['lume-back-logo'] + 'px' }}
-      >
+      {/* LUME logo — bottom left */}
+      <div className="card-back__lume-logo" style={{ fontSize: fontSizes['lume-back-logo'] + 'px' }}>
         <span className="card-back__lume-wordmark">LUME</span>
         <span className="card-back__lume-sep">|</span>
-        <span className="card-back__lume-sub">
-          Movimento de<br />Estudantes da UFF
-        </span>
+        <span className="card-back__lume-sub">Movimento de<br />Estudantes da UFF</span>
       </div>
 
-      {/* ── NFC ───────────────────────────────────────── */}
+      {/* NFC */}
       <div className="card__nfc">
         <div className="card__nfc-ring"></div>
         <span className="card__nfc-label">NFC</span>
