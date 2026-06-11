@@ -1,0 +1,45 @@
+/* ── FormField ──────────────────────────────────────── */
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field__label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--ui-muted);
+  margin-bottom: 5px;
+}
+
+.form-field__input,
+.form-field__select {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  padding: 9px 13px;
+  color: var(--ui-text);
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.form-field__input:focus,
+.form-field__select:focus {
+  border-color: var(--ui-accent);
+  background: var(--ui-accent-alpha);
+}
+
+.form-field__select option {
+  background: #172030;
+}
+
+/* Color input special */
+.form-field__input[type="color"] {
+  padding: 4px 8px;
+  height: 38px;
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+/* ======================================================
+   App — Global reset + layout
+   ====================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* ── App layout ───────────────────────────────────────── */
+.app-layout {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Print sheet ──────────────────────────────────────── */
+@media print {
+  @page { size: 85.6mm 54mm landscape; margin: 0; }
+  body > * { display: none !important; }
+  #print-sheet { display: block !important; }
+  #print-sheet > div {
+    width: 85.6mm; height: 54mm;
+    page-break-after: always; overflow: hidden; position: relative;
+  }
+  #print-sheet > div:last-child { page-break-after: avoid; }
+}

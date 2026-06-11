@@ -1,0 +1,73 @@
+/* ── FontControl ────────────────────────────────────── */
+.font-ctrl {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.font-ctrl__row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.font-ctrl__input {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  padding: 9px 13px;
+  color: var(--ui-text);
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.font-ctrl__input:focus {
+  border-color: var(--ui-accent);
+  background: var(--ui-accent-alpha);
+}
+
+.font-ctrl__apply-btn {
+  padding: 9px 14px;
+  background: var(--ui-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.18s;
+  white-space: nowrap;
+}
+
+.font-ctrl__apply-btn:hover { background: var(--ui-accent-hover); }
+
+.font-ctrl__current {
+  font-size: 11px;
+  color: var(--ui-muted);
+  margin-bottom: 10px;
+}
+
+.font-ctrl__reset-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: var(--ui-accent);
+  border: 1.5px solid var(--ui-accent);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.font-ctrl__reset-btn:hover { background: var(--ui-accent-alpha); }

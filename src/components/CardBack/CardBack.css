@@ -1,0 +1,105 @@
+/* ── CardBack — LUME design ─────────────────────────── */
+
+/* info text */
+.card-back__info {
+  position: absolute;
+  left: 38px;
+  top: 50%;
+  transform: translateY(-54%);
+  right: 258px;
+  font-size: 9px;
+  color: rgba(255,255,255,0.90);
+  line-height: 1.75;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.card-back__info strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+/* QR panel */
+.card-back__qr-panel {
+  position: absolute;
+  right: 26px;
+  top: 22px;
+  bottom: 22px;
+  width: 208px;
+  background: var(--qr-panel-bg);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 12px 10px;
+  gap: 8px;
+  z-index: 2;
+}
+
+.card-back__qr-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--qr-title-color);
+  text-align: center;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.card-back__qr-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back__qr-divider {
+  width: 78%;
+  height: 1px;
+  background: var(--qr-divider-color);
+  flex-shrink: 0;
+}
+
+.card-back__qr-caption {
+  font-size: 9px;
+  color: var(--qr-caption-color);
+  text-align: center;
+  line-height: 1.45;
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-back__qr-caption strong {
+  font-weight: 700;
+}
+
+/* LUME wordmark bottom-left */
+.card-back__lume-logo {
+  position: absolute;
+  bottom: 18px;
+  left: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.card-back__lume-wordmark {
+  font-family: var(--font-cond);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.card-back__lume-sep {
+  color: rgba(255,255,255,0.45);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.card-back__lume-sub {
+  font-size: 8px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.4;
+}
