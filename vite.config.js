@@ -8,4 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsInlineLimit: 0,
   },
+  server: {
+    allowedHosts: ['bernice-lipochromic-unconvincingly.ngrok-free.dev']
+  },
 });
