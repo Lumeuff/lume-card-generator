@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { BiFolderOpen } from "react-icons/bi";
 import './UploadArea.css';
 
 export default function UploadArea({ accept, previewURL, onFile, onClear, icon, placeholder }) {
@@ -25,7 +26,7 @@ export default function UploadArea({ accept, previewURL, onFile, onClear, icon, 
         <img className="upload-area__preview" src={previewURL} alt="preview" />
       ) : (
         <>
-          <span className="upload-area__icon">{icon || '📁'}</span>
+          <span className="upload-area__icon"> {icon}</span>
           <span className="upload-area__text">{placeholder || 'Clique para carregar'}</span>
         </>
       )}

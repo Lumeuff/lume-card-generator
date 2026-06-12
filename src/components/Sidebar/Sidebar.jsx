@@ -3,6 +3,7 @@ import { FormField, FormInput, FormSelect } from '../FormField/FormField.jsx';
 import UploadArea from '../UploadArea/UploadArea.jsx';
 import FontControl from '../FontControl/FontControl.jsx';
 import './Sidebar.css';
+import { BiIdCard, BiImage } from 'react-icons/bi';
 
 /* ── colour helpers ─────────────────────────────────── */
 function hexToRgb(hex) {
@@ -218,16 +219,17 @@ export default function Sidebar({ cardState, onGenerate, onDownloadPDF, onDownlo
 
       <div style={{ marginTop: 16 }}>
         <FormField label="Imagem de Fundo (opcional)">
-          <UploadArea previewURL={bgURL} onFile={setBgURL} icon="🖼" placeholder="Clique para carregar" />
+          <UploadArea previewURL={bgURL} onFile={setBgURL} icon={<BiImage />} placeholder="Clique para carregar" />
           {bgURL && <button className="sidebar__remove-btn" onClick={() => setBgURL(null)}>✕ Remover imagem</button>}
         </FormField>
       </div>
 
       {/* ── Foto ──────────────────────────────────────── */}
       <div className="sidebar__section-title">Foto do Estudante</div>
-      <UploadArea previewURL={photoURL} onFile={setPhotoURL} icon="📷" placeholder="Clique para carregar" />
-      {photoURL && <button className="sidebar__remove-btn" onClick={() => setPhotoURL(null)}>✕ Remover foto</button>}
-
+	<FormField label="Foto do Estudante">
+	      <UploadArea previewURL={photoURL} onFile={setPhotoURL} icon={<BiIdCard />} placeholder="Clique para carregar" />
+	      {photoURL && <button className="sidebar__remove-btn" onClick={() => setPhotoURL(null)}>✕ Remover foto</button>}
+	</FormField>
       {/* ── Fontes ────────────────────────────────────── */}
       <div className="sidebar__section-title">Tamanho de Fonte</div>
       <FontControl
