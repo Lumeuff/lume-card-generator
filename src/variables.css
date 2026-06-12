@@ -35,6 +35,6 @@
   --ui-accent-alpha2:   rgba(0,109,191,0.18);
 
   /* ── Font stack ───────────────────────────────────── */
-  --font-main:          'Barlow', sans-serif;
-  --font-cond:          'Barlow Condensed', sans-serif;
+  --font-main:          'Roboto','Inter', sans-serif;
+  --font-cond:          'Baloo Da 2', sans-serif;
 }

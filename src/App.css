@@ -1,6 +1,9 @@
 /* ======================================================
    App — Global reset + layout
    ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body { height: 100%; }
