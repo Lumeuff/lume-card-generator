@@ -130,7 +130,7 @@
 }
 
 .card-front__info-name {
-  font-family: var(--font-cond);
+  font-family: var(--font-main);
   font-size: 26px;
   font-weight: 800;
   color: var(--card-text);
