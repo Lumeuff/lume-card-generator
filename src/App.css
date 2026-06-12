@@ -3,23 +3,63 @@
    ====================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body { height: 100%; }
+
 body {
   font-family: var(--font-main);
   background: var(--ui-bg);
   color: var(--ui-text);
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-#root { display: flex; flex-direction: column; min-height: 100vh; }
+#root { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
 
-/* ── App layout ───────────────────────────────────────── */
+/* ── Desktop layout ───────────────────────────────────── */
 .app-layout {
   display: grid;
   grid-template-columns: 430px 1fr;
   flex: 1;
   overflow: hidden;
+}
+
+.app-layout__panel { display: contents; }
+
+/* ── Mobile layout ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* Only the active tab's panel is shown */
+  .app-layout__panel {
+    display: none;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .app-layout__panel--active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-layout__panel--sidebar .sidebar {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--ui-border);
+  }
+
+  .app-layout__panel--preview {
+    flex: 1;
+    min-height: 0;
+  }
 }
 
 /* ── Print sheet ──────────────────────────────────────── */

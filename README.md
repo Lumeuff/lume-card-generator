@@ -13,13 +13,13 @@ Gerador de carteirinhas digitais para o Movimento de Estudantes da UFF — LUME.
 
 ```bash
 # 1. Instalar dependências
-npm install
+pnpm install
 
 # 2. Servidor de desenvolvimento
-npm run dev
+pnpm run dev
 
 # 3. Build para produção
-npm run build
+pnpm run build
 ```
 
 ## Estrutura
